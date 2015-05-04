@@ -1,6 +1,6 @@
 <?php
 return array(
-    'Core',
+    'acl\Core',
     'Application',
-    'OtroModulo'
+    'Timeline'
 );

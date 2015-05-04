@@ -16,17 +16,20 @@
             "homepage": "http://agustincl.com",
             "role": "Developer"
         }
-    ],    
-    
+    ],   
     "require": {
-        "php": ">=5.5"     
-    },
+        "php": ">=5.5",
+        "acl/Core": "dev-master"             
+    },   
     "autoload": {
         "psr-0": {
-            "Phpzero\\": "src/"
-        },
-        "classmap": [
-            "Module.php"
-        ]
-    }
+            "Phpzero\\": "src/"            
+        }
+    },    
+    "repositories": [
+        {
+            "type": "git",
+            "url":  "git@github.com:agustincl/Core.git"
+        }                    
+    ] 
 }

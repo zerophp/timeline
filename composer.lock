@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "5d81a06074f63401be8db8018bedb7f3",
+    "packages": [
+        {
+            "name": "acl/Core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:agustincl/Core.git",
+                "reference": "27cfce3196992b90d78bea47a7055ada3cce8957"
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "acl\\Core\\": "src/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Agustín F. Calderón M",
+                    "email": "agustincl@gmail.com",
+                    "homepage": "http://agustincl.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Core scq2015m",
+            "homepage": "https://github.com/zerophp/timeline",
+            "keywords": [
+                "core",
+                "php"
+            ],
+            "time": "2015-05-04 10:08:28"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "acl/core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.5"
+    },
+    "platform-dev": []
+}
