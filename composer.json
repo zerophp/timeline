@@ -1,0 +1,32 @@
+{
+    "name": "zerophp/timeline",
+    "description": "Timeline.js with MySQL Crud",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "timeline",
+        "MySql",
+        "Crud"        
+    ],
+    "homepage": "https://github.com/zerophp/timeline",
+    "authors": [
+        {
+            "name": "Agustín F. Calderón M",
+            "email": "agustincl@gmail.com",
+            "homepage": "http://agustincl.com",
+            "role": "Developer"
+        }
+    ],    
+    
+    "require": {
+        "php": ">=5.5"     
+    },
+    "autoload": {
+        "psr-0": {
+            "Phpzero\\": "src/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}
