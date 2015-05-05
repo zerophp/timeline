@@ -3,11 +3,13 @@ namespace Timeline\Controller;
 
 use acl\Core\View\View;
 use Timeline\Mapper\TimelineMapper;
+use acl\Core\Options\OptionsAwareInterface;
 
-class Crud
+class Crud implements OptionsAwareInterface
 {
     public $layout ='dashboard';
     protected $request;
+    protected $options;
     
     public function __construct($request)
     {
@@ -23,6 +25,8 @@ class Crud
     public function selectAction()
     {
         echo "esto es select";
+        
+        echo $this->getOptions()->getOption3();
         
         $mapper = new TimelineMapper();
         $timelines = $mapper->getTimelines();
@@ -88,12 +92,12 @@ class Crud
             $timeline = $mapper->getTimeline($this->request['params']['idtimeline']);
       
 
-//             echo "<pre>";
-//             print_r($timeline);
-//             echo "</pre>";
+            echo "<pre>";
+            print_r($timeline);
+            echo "</pre>";
             
             
-//             die;
+            die;
             
             
             $content = View::renderView("../modules/Timeline/views/crud/delete.phtml",
@@ -102,4 +106,23 @@ class Crud
         }
         return $content;
     }
+    
+ /**
+     * @return the $options
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+ /**
+     * @param field_type $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+    }
+
+    
+   
 }

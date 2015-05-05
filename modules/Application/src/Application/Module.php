@@ -8,7 +8,7 @@ class Module
     
     private function __construct()
     {
-        echo "ESTO ES LA INSTANCIA DE ".__NAMESPACE__;
+        
     }
     
     public static function getInstance()

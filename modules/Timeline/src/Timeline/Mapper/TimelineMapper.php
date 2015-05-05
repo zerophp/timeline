@@ -2,6 +2,8 @@
 namespace Timeline\Mapper;
 
 use acl\Core\Config;
+use Timeline\Entity\Timeline;
+use acl\Core\Entity\Hydrator;
 
 class TimelineMapper
 {
@@ -24,7 +26,27 @@ class TimelineMapper
         $gateway = new $gatewayName(Config::$config['database']);
     
         $timelines = $gateway->getTimeline($id);
-    
+        
+        echo "aqui";
+        $entity = new Timeline();
+        echo "<pre>entity before: ";
+        print_r($entity);
+        echo "</pre>";
+        
+        
+        $hydrator = new Hydrator();
+        $entity = $hydrator->hydrate($timelines[0], $entity);
+        
+        echo "<pre>entity after: ";
+        print_r($entity);
+        echo "</pre>";
+        
+        $array2 = $hydrator->extract($entity);
+        
+        echo "<pre>entity extract: ";
+        print_r($array2);
+        echo "</pre>";
+        
         return $timelines;
     }
     

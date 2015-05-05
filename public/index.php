@@ -1,5 +1,4 @@
 <?php
-
 require ("../autoload.php");
 
 define ("MODULE_PATH", "../modules");
