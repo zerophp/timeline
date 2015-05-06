@@ -1,0 +1,10 @@
+<?php 
+
+include(VENDOR_PATH.'/acl/Core/src/Core/Forms/RenderForm.php');
+
+$form = include (MODULE_PATH.'/User/src/User/Form/UserForm.php');
+
+$html = renderForm($form, '/user/insert', 'POST', array('id'=>0));
+
+
+echo $html;

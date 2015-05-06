@@ -1,19 +1,15 @@
 <?php
 return array (
-    'crud'=>array(
-        'module'        => 'Crud',
-        'controller'    => 'Crud'
-    ),
-    'micrud'=>array(
-        'module'        => 'Crud',
-        'controller'    => 'Crud'
-    ),
-    'users'=>array(
-        'module'        => 'Application',
-        'controller'    => 'User'
-    ),
     'timeline'=>array(
         'module'        => 'Timeline',
         'controller'    => 'Crud'
     ),
+    'user'=>array(
+        'module'        => 'User',
+        'controller'    => 'Crud'
+    ),
+    'auth'=>array(
+        'module'        => 'User',
+        'controller'    => 'Auth'
+    ),    
 );

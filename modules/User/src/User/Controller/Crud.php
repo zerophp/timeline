@@ -1,8 +1,8 @@
 <?php
-namespace Timeline\Controller;
+namespace User\Controller;
 
 use acl\Core\View\View;
-use Timeline\Mapper\TimelineMapper;
+use User\Mapper\UserMapper;
 use acl\Core\Options\OptionsAwareInterface;
 
 class Crud implements OptionsAwareInterface
@@ -24,18 +24,14 @@ class Crud implements OptionsAwareInterface
     
     public function selectAction()
     {
-        if(!isset($_SESSION['user']))
-            header ("Location: /auth/login");
-        
         echo "esto es select";
+       
         
-        echo $this->getOptions()->getOption3();
-        
-        $mapper = new TimelineMapper();
-        $timelines = $mapper->getTimelines();
+        $mapper = new UserMapper();
+        $users = $mapper->getUsers();
                 
-        $content = View::renderView("../modules/Timeline/views/crud/select.phtml",
-             array('timelines'=>$timelines)
+        $content = View::renderView("../modules/User/views/crud/select.phtml",
+             array('users'=>$users)
         );
         return $content;
     }
@@ -45,13 +41,13 @@ class Crud implements OptionsAwareInterface
         echo "esto es insert";
         if($_POST)
         {
-            $mapper = new TimelineMapper();
-            $timeline = $mapper->setTimeline($_POST);
-            header("Location: /timeline/select");
+            $mapper = new UserMapper();
+            $timeline = $mapper->setUser($_POST);
+            header("Location: /user/select");
         }
         else
         {
-            $content = View::renderView("../modules/Timeline/views/crud/insert.phtml");
+            $content = View::renderView("../modules/User/views/crud/insert.phtml");
         }
         return $content;
     }
@@ -61,16 +57,16 @@ class Crud implements OptionsAwareInterface
         echo "esto es update";
         if ($_POST)
         {
-            $mapper = new TimelineMapper();
-            $timeline = $mapper->putTimeline($_POST['idtimeline'],$_POST);
-            header("Location: /timeline/select");
+            $mapper = new UserMapper();
+            $timeline = $mapper->putUser($_POST['iduser'],$_POST);
+            header("Location: /user/select");
         }
         else
         {
-            $mapper = new TimelineMapper();
-            $timeline = $mapper->getTimeline($this->request['params']['idtimeline']);
+            $mapper = new UserMapper();
+            $timeline = $mapper->getUser($this->request['params']['iduser']);
             
-            $content = View::renderView("../modules/Timeline/views/crud/update.phtml",
+            $content = View::renderView("../modules/User/views/crud/update.phtml",
                 array('fieldsLine'=>$timeline)
             );
         }
@@ -84,26 +80,19 @@ class Crud implements OptionsAwareInterface
         {
             if ($_POST['borrar'] === "SI")
             {
-                $mapper = new TimelineMapper();
-                $timelines = $mapper->deleteTimeline($_POST['idtimeline']);                
+                $mapper = new UserMapper();
+                $timelines = $mapper->deleteUser($_POST['iduser']);                
             }
-            header("Location: /timeline/select");
+            header("Location: /user/select");
         }
         else
         {
-            $mapper = new TimelineMapper();
-            $timeline = $mapper->getTimeline($this->request['params']['idtimeline']);
+            $mapper = new UserMapper();
+            $timeline = $mapper->getUser($this->request['params']['iduser']);
       
 
-            echo "<pre>";
-            print_r($timeline);
-            echo "</pre>";
             
-            
-            die;
-            
-            
-            $content = View::renderView("../modules/Timeline/views/crud/delete.phtml",
+            $content = View::renderView("../modules/User/views/crud/delete.phtml",
                 array('timeline'=>$timeline)
             );
         }

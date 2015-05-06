@@ -2,5 +2,6 @@
 return array(
     'acl\Core',
     'Application',
-    'Timeline'
+    'Timeline',
+    'User'
 );

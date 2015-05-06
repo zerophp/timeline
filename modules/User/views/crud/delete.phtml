@@ -1,0 +1,9 @@
+<?php 
+$data = $viewData['timeline'][0];
+?>
+<form method ="POST" action="/user/delete">
+    Estas seguro que queires borrar el usuario: <?=$data['name'];?>?
+    <input type="hidden" name="iduser" value="<?=$data['iduser'];?>"/>
+    <input name="borrar" value="SI" type ="submit"/>
+    <input name="borrar" value="NO" type ="submit"/>
+</form>

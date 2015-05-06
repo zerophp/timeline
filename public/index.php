@@ -1,4 +1,5 @@
 <?php
+
 require ("../autoload.php");
 
 define ("MODULE_PATH", "../modules");
@@ -15,7 +16,7 @@ use acl\Core\Controller\Helper\Router;
 use acl\Core\Controller\ModuleManager;
 
 $config = Config::readConfig('../configs/application.config.php');
-
+session_start();
 $moduleManager = new ModuleManager('../configs/application.config.php');
 
 $request = Router::readRoute($_SERVER['REQUEST_URI'], $routes);

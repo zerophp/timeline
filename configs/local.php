@@ -3,8 +3,8 @@
 return array(
     'database'=>array(
                 'host'=>'localhost',
-                'user'=>'php',
-                'password'=>'123456',
-                'database'=>'users'
+                'user'=>'root',
+                'password'=>'1234',
+                'database'=>'timeline'
     ),
 );
