@@ -6,7 +6,7 @@ use User\Service\User;
 
 class Auth
 {
-    public $layout ='dashboard';
+    public $layout ='login';
     
     public function loginAction()
     {
@@ -32,7 +32,7 @@ class Auth
     public function logoutAction()
     {
         unset($_SESSION['user']);
-        header ("Location: /auth/login");
+        header ("Location: /");
         
     }
     

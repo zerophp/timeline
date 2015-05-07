@@ -13,6 +13,8 @@ class Crud implements OptionsAwareInterface
     
     public function __construct($request)
     {
+        if(!isset($_SESSION['user']))
+            header ("Location: /auth/login");
         $this->request = $request;    
     }
     

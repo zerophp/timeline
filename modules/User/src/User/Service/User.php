@@ -15,14 +15,34 @@ class User
         
     }
     
+    protected function isValidToken($token)
+    {
+        $seed = "ksskjdclksdjd098127eklqmskcnx01927euqasdh0192";
+        $sesid = session_id();        
+        $val = $seed ^ $sesid;
+        $mytoken = md5($val);
+        
+        if($token === $mytoken)
+            return true;
+        else
+            return false;
+    }
+    
     public function loginUser($filter)
     {
+
+        if(!$this->isValidToken($filter['csrf']))
+        {
+            header("Location: http://timeline.local/auth/login");
+            exit();
+        }
+        
         $mapper = new UserMapper();
         $users = $mapper->getUserByEmailPassword($filter);
     
-        echo "<pre>";
-        print_r($users);
-        echo "</pre>";
+//         echo "<pre>";
+//         print_r($users);
+//         echo "</pre>";
         
         if(count($users)==1)
         {

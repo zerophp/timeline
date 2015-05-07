@@ -13,6 +13,9 @@ class Crud implements OptionsAwareInterface
     
     public function __construct($request)
     {
+        if(!isset($_SESSION['user']))
+            header ("Location: /auth/login");
+        
         $this->request = $request;    
     }
     
@@ -24,8 +27,7 @@ class Crud implements OptionsAwareInterface
     
     public function selectAction()
     {
-        if(!isset($_SESSION['user']))
-            header ("Location: /auth/login");
+       
         
         echo "esto es select";
         
@@ -33,6 +35,18 @@ class Crud implements OptionsAwareInterface
         
         $mapper = new TimelineMapper();
         $timelines = $mapper->getTimelines();
+        
+//         echo "<pre>";
+//         print_r($timelines);
+//         echo "</pre>";
+        
+        
+//         echo "<pre>";
+//         print_r(json_encode($timelines));
+//         echo "</pre>";
+        
+        
+//         die;
                 
         $content = View::renderView("../modules/Timeline/views/crud/select.phtml",
              array('timelines'=>$timelines)

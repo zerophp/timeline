@@ -11,5 +11,9 @@ return array (
     'auth'=>array(
         'module'        => 'User',
         'controller'    => 'Auth'
-    ),    
+    ), 
+    'error'=>array(
+        'module'        => 'Application',
+        'controller'    => 'Error'
+    ),
 );
